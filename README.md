@@ -51,6 +51,9 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 | Dojo (Tesla) | |
 | TorchDynamo/TorchInductor ||
 | [NNC](https://dev-discuss.pytorch.org/t/nnc-walkthrough-how-pytorch-ops-get-fused/125/4) | |
+| [DeepSpeed](https://github.com/microsoft/DeepSpeed) | | 
+| AIT (AI Template) | | 
+| [Kernl](https://github.com/ELS-RD/kernl/) | |
 
 <H2>Related</H2>
 
