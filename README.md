@@ -3,16 +3,24 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 
 <H2>Terminology</H2>
 
-* Deep Learning Model
-* DL Compute Graph
-* Graph optimization
-* DL Optimizer
-* DL Compiler
-* LLVM
-* Polyhedral
-* Autograd
-* Intermediate Representation (IR)
- 
+| Concept | Meaning |
+| ------- | ------- |
+| Deep Learning Model | | 
+| DL Compute Graph | |
+| Graph optimization | |
+| DL Optimizer | |
+| DL Compiler | |
+| LLVM | |
+| Polyhedral | |
+| Intermediate Representation (IR) | |
+| Auto Tuning | |
+| Kernel Fusion | |
+| Dynamic Shape Inference | |
+| Data-dependent Shapes | |
+| Lowering | Rewriting higher abstraction operation (or construct) in terms of a sequence of simpler abstractions |
+| AOT | Ahead-of-Time compilation |
+| JIT | Just-in-Time compilation |
+
 <H2>Compiler Frameworks</H2>
 
 | Library       | DL Framework  | Status | Language | Use Case | Quantization | Sparsity | Distributed  | OSS | Platform |
@@ -24,19 +32,22 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 <H2>Intermediate Representations</H2>
 
 * ONNX
-* TorchScript
+* TorchScript (PyTorch)
+* FX (PyTorch)
+* Relay (TVM)
+* XLA HLO (XLA)
 
 <H2>Compilers and Optimizers</H2>
 
-| Library       | DL Framework  | Status | Language | Use Case | Quantization | Sparsity | Distributed  | OSS | Platform | Compiler FW |
-| ------------- | ------------- | ------ | -------- | -------- | ------------ | -------- | ------------ | --- | -------- | ----------- |
+| Library       | DL Framework  | Status | Language | Use Case | Quantization | Sparsity | Distributed  | OSS | Platform | Compiler FW | IR | Mixed Precision
+| ------------- | ------------- | ------ | -------- | -------- | ------------ | -------- | ------------ | --- | -------- | ----------- | -- | ---------------
 | [IREE](https://github.com/iree-org/iree)  | TF, TFLite, PyTorch, JAX | Early development | C, Python, Java | Training, Inference | N | N | ? | Y | ? | MLIR |
 | [TensorComprehensions](https://github.com/facebookresearch/TensorComprehensions) | PyTorch, Caffe2 | ? | C++ | Inference | ? | ? | ? | Y | ? | - |
-| NGraph  |   |
+| nGraph  |   |
 | [XLA](https://www.tensorflow.org/xla/)  | Tensorflow, Pytorch, Julia, JAX, Nx | Active | 
 | [Glow](https://github.com/pytorch/glow) | Pytorch | Active | C++ | Inference | Y | ? | ? | Y | Accelerators | - |
 | [Myelin (Sling)](https://github.com/ringgaard/sling/blob/master/doc/guide/myelin.md) | | | C++, Python | Training, Inference | 
-| TensorFlow Grappler | |
+| [TensorFlow Grappler](https://www.tensorflow.org/guide/graph_optimization#overview) | |
 | [ONNC (Open NN Compiler)](https://onnc.ai/#) | ONNX | 
 | ONNX Runtime | |
 | [NUPHAR](https://github.com/microsoft/onnxruntime-openenclave/blob/openenclave-public/docs/execution_providers/Nuphar-ExecutionProvider.md) | ONNX Runtime | Preview 
@@ -46,7 +57,7 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 | TorchScript | |
 | LazyTensor | |
 | Shark | |
-| OpenAI Triton | | 
+| [OpenAI Triton](https://github.com/openai/triton) | | 
 | NVFuser | | 
 | Dojo (Tesla) | |
 | TorchDynamo/TorchInductor ||
@@ -54,6 +65,8 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 | [DeepSpeed](https://github.com/microsoft/DeepSpeed) | | 
 | AIT (AI Template) | | 
 | [Kernl](https://github.com/ELS-RD/kernl/) | |
+| [NNFusion](https://github.com/microsoft/nnfusion) | |
+| [Antares](https://github.com/microsoft/antares) | |
 
 <H2>Related</H2>
 
@@ -61,6 +74,7 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 | ------------- | ------------- | ------ | -------- | -------- | ------------ | -------- | ------------ | --- | -------- | ----------- |
 | [Taco (Tensor Algebra Compiler)](http://tensor-compiler.org/index.html) | |
 | SymPy |
+| [Numba](https://numba.pydata.org/numba-doc/latest/user/5minguide.html) | |
 
 <H2> Elevator Pitches </H2>
 <H3>IREE (Intermediate Representation Execution Environment)</H3>
@@ -100,3 +114,16 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 <H3> NUPHAR (Neural-network Unified Preprocessing Heterogeneous ARchitecture) </H3>
 
 > As an execution provider in the ONNX Runtime, it is built on top of TVM and LLVM to accelerate ONNX models by compiling nodes in subgraphs into optimized functions via JIT. It also provides JIT caching to save compilation time at runtime.
+
+<H3> Numba </H3>
+
+> Numba is a just-in-time compiler for Python that works best on code that uses NumPy arrays and functions, and loops.
+
+<H3> NNFusion </H3>
+
+> A flexible and efficient DNN compiler that can generate high-performance executables from a DNN model description (e.g., TensorFlow frozen models and ONNX format).
+
+<H3> Antares </H3>
+
+> An automatic engine for multi-platform kernel generation and optimization.
+
