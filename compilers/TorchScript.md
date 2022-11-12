@@ -19,4 +19,4 @@ SSA - single-static assignment (SSA) form, meaning that each Value has precisely
 
 Torch resources:
 * [pytorch design philosophy](https://pytorch.org/docs/stable/community/design.html)
-* https://open.spotify.com/show/6UzHKeiy368jKfQMKKvJY5
+* [pytorch developer podcast](https://open.spotify.com/show/6UzHKeiy368jKfQMKKvJY5)
