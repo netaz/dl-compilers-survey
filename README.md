@@ -88,6 +88,7 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 | ------|------|---------|
 | [DISC : A Dynamic Shape Compiler for Machine Learning Workloads](https://arxiv.org/pdf/2103.05288.pdf) | Nov 2021 | This paper provides a compiler system to natively support optimization for dynamic shape workloads <br> MLIR based, extends XLA HLO |
 | [Nimble: Efficiently Compiling Dynamic Neural Networks for Model Inference](https://arxiv.org/abs/2006.03031) | June 2020 | TVM based
+| [Rammer: Enabling Holistic Deep Learning Compiler Optimizations with rTasks](https://www.usenix.org/conference/osdi20/presentation/ma)| Nov 2020 | A DNN compiler design that optimizes the execution of DNN workloads on massively parallel accelerators. Rammer generates an efficient static spatio-temporal schedule for a DNN at compile time to minimize scheduling overhead. It maximizes hardware utilization by holistically exploiting parallelism through inter- and intra- operator co-scheduling. Rammer achieves this by proposing several novel, hardware neutral, and clean abstractions for the computation tasks and the hardware accelerators. These abstractions expose a much richer scheduling space to Rammer, which employs several heuristics to explore this space and finds efficient schedules.<br> Neta: scheduling parallelism. Break kernel to units (e.g. tiles) and allow concurrent scheduling of compute units from several layers. Choose kernels based on resource limits, not latency optimization when parallelizing <br> Microsoft Research |
 
 <H2>Misc</H2>
 
