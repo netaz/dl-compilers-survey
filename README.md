@@ -1,25 +1,6 @@
 # DL Compiler Survey
 A survey of Deep Learning optimizers, compilers and everything in between.
 
-<H2>Terminology</H2>
-
-| Concept | Meaning |
-| ------- | ------- |
-| Deep Learning Model | | 
-| DL Compute Graph | |
-| Graph optimization | |
-| DL Optimizer | |
-| DL Compiler | |
-| LLVM | |
-| Polyhedral | |
-| Intermediate Representation (IR) | |
-| Auto Tuning | |
-| Kernel Fusion | |
-| Dynamic Shape Inference | |
-| Data-dependent Shapes | |
-| Lowering | Rewriting higher abstraction operation (or construct) in terms of a sequence of simpler abstractions |
-| AOT | Ahead-of-Time compilation |
-| JIT | Just-in-Time compilation |
 
 <H2>Compiler Frameworks</H2>
 
@@ -31,11 +12,32 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 
 <H2>Intermediate Representations</H2>
 
-* ONNX
-* TorchScript (PyTorch)
-* FX (PyTorch)
-* Relay (TVM)
-* XLA HLO (XLA)
+<details>
+  <summary>FX (PyTorch)</summary>
+ 
+  * Represents a program as a DAG
+  * Uses SSA
+  * Nodes are operations (Python call-site: Module, Method, function)
+  * Edges are values
+</details>
+<details>
+  <summary>ONNX</summary>
+</details>
+<details>
+  <summary>TorchScript (PyTorch)</summary>
+ 
+  * "the IR is represented in structured control flow composed of ifs & loops"
+
+</details>
+<details>
+  <summary>Relay (TVM)</summary>
+</details>
+<details>
+  <summary>ONNX</summary>
+</details>
+<details>
+  <summary>XLA HLO</summary>
+</details>
 
 <H2>Compilers and Optimizers</H2>
 
@@ -98,7 +100,13 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 <H3>XLA (Accelerated Linear Algebra)</H3>
 
 > a domain-specific compiler for linear algebra that can accelerate TensorFlow models with potentially no source code changes.
- 
+
+> Given a computation graph, XLA firstly translates it into HLO IR.
+It then finds ops that can be fused together and generates fusion kernels, which will be cached according to fusion pattern.
+The fusion pattern contains op sequence with full shape information. 
+When XLA meets a fusion pattern, it will first check whether this pattern is already cached. 
+It will use the binary directly if hit, otherwise it will compile for the new pattern and cache the compiled result. ([src](https://arxiv.org/pdf/2103.05288.pdf))
+
 <H3>Myelin (Sling)</H3>
 
 > a just-in-time compiler for neural networks. It compiles a flow into x64 assembly code at runtime. The flow contains the graph for the neural network computations as well as the learned weights from training the network. The generated code takes the CPU features of the machine into account when generating the code so it can take advantage of specialized features like SSE, AVX, and FMA3.
