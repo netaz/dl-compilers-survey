@@ -1,5 +1,7 @@
 A catalog of DL compiler optimizations
 
+Also see [this list](https://en.wikipedia.org/wiki/Optimizing_compiler) of compiler optimizations, many of which are also applicable to DL compilers.
+
 <H2>Graph Transformation Optimizations</H2>
 DAG-to-DAG transformations.
 
@@ -19,6 +21,7 @@ DAG-to-DAG transformations.
 * Hoisting
 * [Canonicalization](https://sunfishcode.github.io/blog/2018/10/22/Canonicalization.html)
 
-<H2> </H2>
+<H2> Other Optimizations </H2>
+
 * Layout Optimization
 * Memory Planning (Liveness Analysis)
