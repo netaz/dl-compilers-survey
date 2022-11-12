@@ -22,6 +22,9 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 </details>
 <details>
   <summary>ONNX</summary>
+  
+  * https://github.com/onnx/onnx/blob/main/docs/IR.md
+  
 </details>
 <details>
   <summary>TorchScript (PyTorch)</summary>
@@ -45,7 +48,7 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 | ------------- | ------------- | ------ | -------- | -------- | ------------ | -------- | ------------ | --- | -------- | ----------- | -- | ---------------
 | [IREE](https://github.com/iree-org/iree)  | TF, TFLite, PyTorch, JAX | Early development | C, Python, Java | Training, Inference | N | N | ? | Y | ? | MLIR |
 | [TensorComprehensions](https://github.com/facebookresearch/TensorComprehensions) | PyTorch, Caffe2 | ? | C++ | Inference | ? | ? | ? | Y | ? | - |
-| nGraph  |   |
+| nGraph (Intel) |   |
 | [XLA](https://www.tensorflow.org/xla/)  | Tensorflow, Pytorch, Julia, JAX, Nx | Active | 
 | [Glow](https://github.com/pytorch/glow) | Pytorch | Active | C++ | Inference | Y | ? | ? | Y | Accelerators | - |
 | [Myelin (Sling)](https://github.com/ringgaard/sling/blob/master/doc/guide/myelin.md) | | | C++, Python | Training, Inference | 
@@ -69,6 +72,7 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 | [Kernl](https://github.com/ELS-RD/kernl/) | |
 | [NNFusion](https://github.com/microsoft/nnfusion) | |
 | [Antares](https://github.com/microsoft/antares) | |
+| [Tiramisu](http://tiramisu-compiler.org/) | |
 
 <H2>Related</H2>
 
@@ -77,6 +81,19 @@ A survey of Deep Learning optimizers, compilers and everything in between.
 | [Taco (Tensor Algebra Compiler)](http://tensor-compiler.org/index.html) | |
 | SymPy |
 | [Numba](https://numba.pydata.org/numba-doc/latest/user/5minguide.html) | |
+
+<H2>Academic Research</H2>
+ 
+| Paper | Date | Details | 
+| ------|------|---------|
+| [DISC : A Dynamic Shape Compiler for Machine Learning Workloads](https://arxiv.org/pdf/2103.05288.pdf) | Nov 2021 | This paper provides a compiler system to natively support optimization for dynamic shape workloads <br> MLIR based, extends XLA HLO |
+| [Nimble: Efficiently Compiling Dynamic Neural Networks for Model Inference](https://arxiv.org/abs/2006.03031) | June 2020 | TVM based
+
+<H2>Misc</H2>
+
+* based on polyhedral machinery - Tiramisu, Tensor Comprehensions
+* based on scheduling languages - Halide, TVM
+
 
 <H2> Elevator Pitches </H2>
 <H3>IREE (Intermediate Representation Execution Environment)</H3>
@@ -135,3 +152,6 @@ It will use the binary directly if hit, otherwise it will compile for the new pa
 
 > An automatic engine for multi-platform kernel generation and optimization.
 
+<H3> Tiramisu </H3>
+
+> Tiramisu is a polyhedral compiler for dense and sparse deep learning and data parallel algorithms. It provides a simple C++ API for expressing algorithms and how these algorithms should be optimized by the compiler.
