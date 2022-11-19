@@ -1,6 +1,7 @@
 # DL Compiler Survey
 A survey of Deep Learning optimizers, compilers and everything in between.
 
+![alt text](https://github.com/netaz/dl-compilers-survey/blob/main/compilers-galore-2022-11-17-1732.svg?raw=true)
 
 <H2>Compiler Frameworks</H2>
 
